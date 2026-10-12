@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>To-Do List</title>
+
+</head>
+
+<body>
+
+<h1>To-Do List</h1>
+
+<div id="todo-container"></div>
+
+<input type="text" id="todo-title" placeholder="Title">
+
+<button onclick="addTodo()">Add Todo</button>
+
+
+
+<script>
+
+    async function fetchTodos() {
+
+        const response = await fetch('/api/todos');
+
+        const todos = await response.json();
+
+        const container = document.getElementById('todo-container');
+
+        container.innerHTML = '';
+
+        todos.forEach(todo => {
+
+            container.innerHTML += `<div>${todo.title} <button onclick="deleteTodo(${todo.id})">Delete</button></div>`;
+
+        });
+
+    }
+
+
+
+    async function addTodo() {
+
+        const title = document.getElementById('todo-title').value;
+
+        await fetch('/api/todos', {
+
+            method: 'POST',
+
+            headers: { 'Content-Type': 'application/json' },
+
+            body: JSON.stringify({ title })
+
+        });
+
+        fetchTodos();
+
+    }
+
+
+
+    async function deleteTodo(id) {
+
+        await fetch(`/api/todos/${id}`, { method: 'DELETE' });
+
+        fetchTodos();
+
+    }
+
+
+
+    fetchTodos();
+
+</script>
+
+</body>
+
+</html>
