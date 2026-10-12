@@ -166,15 +166,6 @@ Then open <http://localhost:8081/h2-console>. The JDBC URL is printed in the app
 java -jar target/todolist-0.0.1-SNAPSHOT.jar
 ```
 
-## Roadmap / Ideas
-
-- [ ] Update endpoint (`PUT /api/todos/{id}`) to edit tasks
-- [ ] Toggle task completion from the UI
-- [ ] Bean Validation (`@NotBlank`) for the title
-- [ ] Switch from H2 to a persistent database (PostgreSQL or MySQL)
-- [ ] Global exception handling
-- [ ] More unit and integration tests
-
 ## Acknowledgements
 
 This project is based on the tutorial [Creating a To-Do List Application with Spring Boot](https://useful.codes/creating-a-to-do-list-application-with-spring-boot/) from Useful Codes, adapted for Spring Boot 4 (Jakarta Persistence imports, getters/setters, and `createdAt` handling).
@@ -186,4 +177,4 @@ Add a license of your choice (for example, MIT) and update this section.
 ## Author
 
 **Your Name**
-GitHub: [@your-username](https://github.com/your-username)
+GitHub: [@Rxj123](https://github.com/Rxj123)
